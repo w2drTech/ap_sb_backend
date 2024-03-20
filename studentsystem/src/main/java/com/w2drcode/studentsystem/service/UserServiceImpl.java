@@ -12,8 +12,6 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User registerUser(User user) {
-        // Additional validation can be performed here
-
         return userRepository.save(user);
     }
 

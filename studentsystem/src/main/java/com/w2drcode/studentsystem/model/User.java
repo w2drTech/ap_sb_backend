@@ -1,9 +1,6 @@
 package com.w2drcode.studentsystem.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class User {
@@ -13,6 +10,26 @@ public class User {
 
     private String username;
     private String password;
+    private String userType;
+    @OneToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
 
     public int getId() {
         return id;

@@ -1,5 +1,6 @@
 package com.w2drcode.studentsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class Appointment {
     private String testType;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "patient_id")
     private Patient patient;
 

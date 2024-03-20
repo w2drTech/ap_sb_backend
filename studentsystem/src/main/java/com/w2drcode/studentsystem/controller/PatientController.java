@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/patient")
 public class PatientController {
     @Autowired
     private PatientService patientService;
 
     @PostMapping("/add")
-    public String add(@RequestBody Patient patient){
+    public Patient add(@RequestBody Patient patient){
         patientService.savePatient(patient);
-        return "New patient is added";
+        return patientService.savePatient(patient);
     }
     @GetMapping("/get")
     public List<Patient> findAllPatients()

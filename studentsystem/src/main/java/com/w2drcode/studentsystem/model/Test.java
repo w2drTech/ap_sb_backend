@@ -1,5 +1,6 @@
 package com.w2drcode.studentsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,9 +13,11 @@ public class Test {
     private String testContent;
     private String referringDoctor;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "patient_id")
     private Patient patient;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "technician_id")
     private Technician technician;
 

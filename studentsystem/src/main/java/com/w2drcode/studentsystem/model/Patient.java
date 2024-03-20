@@ -24,6 +24,9 @@ public class Patient {
     @JsonIgnore
     @OneToMany(mappedBy = "patient")
     private List<Test> tests;
+    @JsonIgnore
+    @OneToOne(mappedBy = "patient")
+    private User user;
     public int getId() {
         return id;
     }
@@ -86,5 +89,13 @@ public class Patient {
 
     public void setTests(List<Test> tests) {
         this.tests = tests;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
